@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EditEventView: View {
     @Bindable var event: Event
@@ -20,6 +21,13 @@ struct EditEventView: View {
     }
 }
 
-//#Preview {
-//    EditEventView()
-//}
+#Preview {
+    do {
+        let previewer = try Previewer()
+        
+        return EditEventView(event: previewer.event)
+            .modelContainer(previewer.container)
+    }catch {
+        return Text("Failed to load preview: \(error.localizedDescription)")
+    }
+}
