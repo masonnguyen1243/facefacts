@@ -33,12 +33,14 @@ struct ContentView: View {
         }
     }
     
+    // Add person
     func addPerson() {
         let person = Person(name: "", emailAddress: "", details: "")
         modelContext.insert(person)
         path.append(person)
     }
     
+    // Delete person
     func deletePeople(at offsets: IndexSet) {
         for offset in offsets {
             let person = people[offset]
